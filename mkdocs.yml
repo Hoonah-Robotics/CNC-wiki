@@ -1,0 +1,48 @@
+site_name: "CNC-STEAM wiki"
+site_author: "Hoonah City Schools Arts Program"
+site_url: "https://Hoonah-Robotics.github.io/CNC-wiki/"
+
+# This is the main change
+theme:
+  name: ivory
+
+# The nav stays exactly the same
+nav:
+  - 'The BIG picture': 'index.md'
+  - '1. CAD by Design': 'cad.md'
+  - '2. CAM the Carver': 'cam.md'
+  - '3. Control the Machine': 'control.md'
+  - '4. CNC the Maker': 'cnc-maker.md'
+  - '5. Finishing to Beautify': 'finishing.md'
+  - 'Hoonah Gallery': 'gallery.md'
+  - 'Trouble?': 'troubleshooting.md'
+  - 'Learning More': 'learning-more.md'
+  - 'Classroom setup': 'setup.md'  
+  - 'Maintenance Tips': 'maintain.md'
+  - 'Glossary of Terms': 'glossary.md'
+  - 'GRBL Reference': 'grbl.md' 
+  - 'Credits': 'credits.md'
+
+# The footer setup is different for Windmill
+extra:
+  copyright: |
+    2026 Hoonah City Schools Arts Program  
+    URL: https://Hoonah-Robotics.github.io/CNC-wiki/
+    
+markdown_extensions:
+# - callouts using blocks.details and blocks.admonition instead
+  - pymdownx.blocks.details
+  - pymdownx.blocks.admonition
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+# Config options for 'ivory' theme      
+# static_templates:
+#    - 404.html
+
+# include_search_page: true
+# search_index_only: false
+
+# highlightjs: true
+# hljs_languages: []
