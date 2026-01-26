@@ -123,7 +123,7 @@ Here is a breakdown of the key tasks you will perform, with timestamps from the 
 
 6.  **Set Your Zero (Origin):**
     * This is the **most important** part of machine setup. You must tell the machine exactly where your job starts.
-    * Use the "Jog" buttons in UGS to move the machine:
+    * Use the "Jog" buttons in UGS to move the CNC's toolhead:
         * Move the X and Y axes until the tip of the bit is directly over the **bottom-left corner** of your material.
         * Click the **"Reset X"** and **"Reset Y"** buttons (or `Set X=0`, `Set Y=0`).
         * Carefully "jog" the Z-axis down until the very tip of the bit is just touching the **top surface** of your material. (The "paper method" is great for this).

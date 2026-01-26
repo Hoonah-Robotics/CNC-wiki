@@ -1,0 +1,36 @@
+/* docs/css/extra.css */
+
+/* 1. Style the main footer container */
+footer {
+    background-color: #f9f9f9;  /* Light grey background */
+    border-top: 1px solid #eaeaea; /* Subtle top border */
+    padding: 0px 0;            /* Top/Bottom padding Original=30*/
+    margin-top: 0px;           /* Push it away from the content. Original=40 */
+}
+
+/* 2. Style the Note text (Copyright, etc.) */
+.footer-note {
+    text-align: center;         /* Center the text */
+    font-size: 14px;            /* Make it slightly smaller */
+    color: #666666;             /* Dark grey text (softer than black) */
+    line-height: 1.0;           /* Better spacing between lines Original=1.6 */
+    margin-top: 0px;			/* Original=30 */
+}
+
+/* 3. Style links inside the footer note */
+.footer-note a {
+    color: #007bff;             /* Make links blue */
+    text-decoration: none;      /* Remove underline */
+    font-weight: bold;
+}
+
+.footer-note a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* 4. (Optional) Tweak the Next/Prev buttons container */
+.footer-buttons {
+/*    border-bottom: 1px solid #eaeaea;  */
+    padding-bottom: 10px;		/* Original=20 */
+    margin-bottom: 0px;		/* Original=20 */
+}

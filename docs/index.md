@@ -1,4 +1,4 @@
-# Welcome to CNC-STEAM
+# Welcome to the CNC-Wiki
 
 This site will guide you, step-by-step, through the complete CNC workflow, from a digital drawing to a physical object you can hold.
 

@@ -1,6 +1,6 @@
 ## Classroom setup
 
-> Setup of a CNC pod in the classroom
+> Setup of a CNC station in the classroom
 
 Not much here (yet)...
 

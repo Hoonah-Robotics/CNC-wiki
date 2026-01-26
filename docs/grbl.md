@@ -2,15 +2,15 @@
 
 > "A reference to Grbl, Error codes, Alarm codes, settings, supported Gcode and States."
 
-* **Written by:** Graham B. 
+* **Written by:** Graham B.   **Remixed by:** Ben McLuckie
 * **Source:** [Grbl v2 Quick Reference](https://www.sainsmart.com/blogs/news/grbl-v2-0-quick-reference)  
 
 ### Most Useful
 | Code | Description |
 | :--- | :--- |
-| $$ | ***Am I alive?***  (Display Grbl Settings)|
-| $H | ***Take Me Home!***  (Run Homing Cycle)|
-| $X | ***Wake Me Up!***  (Kill Alarm Lock state)|
+| $$ | ***Am I alive?***  (Display Grbl Settings which confirms the CNC machine is listening to yiu!)|
+| $H | ***Take Me Home!***  (Run Homing Cycle for the machine to find where x=0 and y=0 is!)|
+| $X | ***Wake Me Up!***  (Kill Alarm Lock state. Typically the CNC machine will boot into Alarm Lock for safety)|
 
 
 ### Error Codes

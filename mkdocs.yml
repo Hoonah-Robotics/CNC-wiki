@@ -1,12 +1,15 @@
-site_name: "CNC-STEAM wiki"
+site_name: "CNC-wiki"
 site_author: "Hoonah City Schools Arts Program"
 site_url: "https://Hoonah-Robotics.github.io/CNC-wiki/"
 
-# This is the main change
+# Ivory theme has hard coded footer, so need override and css
 theme:
   name: ivory
+  custom_dir: overrides
 
-# The nav stays exactly the same
+extra_css:
+  - css/extra.css
+
 nav:
   - 'The BIG picture': 'index.md'
   - '1. CAD by Design': 'cad.md'
@@ -23,11 +26,13 @@ nav:
   - 'GRBL Reference': 'grbl.md' 
   - 'Credits': 'credits.md'
 
-# The footer setup is different for Windmill
-extra:
-  copyright: |
-    2026 Hoonah City Schools Arts Program  
-    URL: https://Hoonah-Robotics.github.io/CNC-wiki/
+#extra:
+#    copyright: "Copyright &copy; 2024 Your Name or Company"
+
+# extra:
+#  copyright: |
+#    2026 Hoonah City Schools Arts Program  
+#    URL: https://Hoonah-Robotics.github.io/CNC-wiki/
     
 markdown_extensions:
 # - callouts using blocks.details and blocks.admonition instead
