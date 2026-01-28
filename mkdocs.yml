@@ -26,10 +26,7 @@ nav:
   - 'GRBL Reference': 'grbl.md' 
   - 'Credits': 'credits.md'
 
-#extra:
-#    copyright: "Copyright &copy; 2024 Your Name or Company"
-
-# extra:
+# extra: < hard code in overrides/footer.html instead
 #  copyright: |
 #    2026 Hoonah City Schools Arts Program  
 #    URL: https://Hoonah-Robotics.github.io/CNC-wiki/
@@ -42,6 +39,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
+plugins:
+  - open-in-new-tab
+  
 # Config options for 'ivory' theme      
 # static_templates:
 #    - 404.html
