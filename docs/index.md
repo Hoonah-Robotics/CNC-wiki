@@ -20,3 +20,5 @@ Below is a quick summary of the journey. Click any step to jump to the detailed 
 **[3. Control the machine](control.md)** The "communication" phase. We'll connect our computer to the CNC machine and send it the instructions.
 
 **[4. CNC the maker](cnc-maker.md)** The "making" phase. We'll set up the machine, secure our material, and watch it carve!
+
+**[5. Finishing to Beautify](finishing.md)** No project is complete until you have applied your sense of design and aesthetics to beautify your project and present it to the world.
