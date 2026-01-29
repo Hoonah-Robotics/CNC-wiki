@@ -1,17 +1,17 @@
 ## Step 3. Control the machine
 > "send the toolpaths and other machine instructions (GCODE) to the CNC's controller"
 
-![Control graphic](images/control-concept.png)
+![Control graphic](images/cncjs.png)
 
 ### What is this step?
 
 This step is the bridge between the digital file and the physical machine. We use a **G-Code Sender** (also called "control software") to talk to the CNC machine's "brain" (the **controller**).
 
-Our **FoxAlien Masuter Pro** uses a controller that understands G-Code. We will use a program called **Universal Gcode Sender (UGS)** to connect our computer to the CNC via a USB cable, load our `.nc` G-Code file, and tell the machine "Go!"
+Our **FoxAlien Masuter Pro** uses a controller that understands G-Code. We will use a program called **CNCjs** to connect our computer to the CNC via a USB cable, load our `.nc` G-Code file, and tell the machine "Go!"
 
 ### Key Vocabulary
 
-* **G-Code Sender:** The software that sends G-Code instructions to the CNC, line by line. We use **UGS**.
+* **G-Code Sender:** The software that sends G-Code instructions to the CNC, line by line. We use **CNCjs**.
 * **Controller:** The small "brain" or circuit board on the CNC machine (it runs **GRBL** firmware) that receives the G-Code and controls all the motors.
 * **Jog:** Manually moving the machine's X, Y, or Z axis using the software's buttons. This is used to find your starting point.
 * **Zero Position (or Origin):** The exact starting point for your job. You set this *every single time*. It's the `X=0, Y=0, Z=0` spot on your material.
@@ -86,23 +86,24 @@ Here is a breakdown of the key tasks you will perform, with timestamps from the 
     ![Install the Router Bit](images/install-bit.png)
 
     
-3. **Connect to Universal Gcode Sender (UGS)**
-	* There are two versions depending if the computer is your own personal or one from HCS managed by TechOps. Choose a workflow edition:
+3. **Connect to G-code Sender**
+	* There are two versions depending if the computer is your own personal connected by USB or one from HCS managed by TechOps. Choose your method:
 
 	---       
-	/// details | **I am using my own personal computer**
+	/// details | **I am using my own personal computer connected to the CNC by USB cable...**
     	type: note
     
-	1.  [**Download Software:**](https://universalgcodesender.com/download/) Make sure you 	have **Universal Gcode Sender (UGS)** installed on the computer connected to the CNC. We will use the "Platform" version.
-	-- Steps #2 - #4 will be a little different for our CNC-STEAM setup
+	1.  **Download and Install Software** You will need both **Universal Gcode Sender (UGS)** software and **CH340** USB drivers downloaded and installed to your computer. Note that the HCS computers will be using **CNCjs** instead of UGS but they are nearly identical so the instructions below should still work fine.
+		* **[CH340 drivers](https://www.foxalien.com/pages/foxalien-help-center?hcUrl=%2Fen-US%2Fch340-driver-and-grbl-software-490211)**
+		* **[Universal Gcode Sender (UGS)](https://universalgcodesender.com/download/)**, Platform version.
 	2.  **Connect to the CNC:**
-	    * Turn on the FoxAlien Masuter Pro.
+	    * Turn on the FoxAlien Masuter CNC machine.
 	    * Connect the computer to the CNC using the USB cable.
-	3.  **Launch UGS:** Open the UGS application installed on your computer.
+	3.  **Launch the gcode sender:** Open UGS installed on your computer.
 
 	///
 	---
-	/// details | **I am using a Hoonah School's computer managed by TechOps**
+	/// details | **I am using a Hoonah School's computer managed by TechOps...**
     	type: note
     
 	1.  **Connect to the CNC Machine:** The `CNC-Pro`, `CNC-3S`, or `CNC-mini` box should be connected by USB to the target CNC machine and to a power supply by microUSB. There should be a linking red light inside the box. `CNC-Pro` should be powered ON for 15 seconds before the next step.
@@ -111,6 +112,7 @@ Here is a breakdown of the key tasks you will perform, with timestamps from the 
 	![CNC-Pro-URL](images/cnc-pro-url.png)
 	///
 	---
+
 4.  **Establish Connection:**
     * In the "Connection" window, select the correct **Port** for the CNC. (It will usually be the only one that appears when you plug in the machine).
     * Set the **Baud Rate** to `115200` (this is the standard for our machine).

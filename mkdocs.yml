@@ -19,7 +19,7 @@ nav:
   - '5. Finishing to Beautify': 'finishing.md'
   - 'Hoonah Gallery': 'gallery.md'
   - 'Trouble?': 'troubleshooting.md'
-  - 'Learning More': 'learning-more.md'
+  - 'Learn More...': 'learn-more.md'
   - 'Classroom setup': 'setup.md'  
   - 'Maintenance Tips': 'maintain.md'
   - 'Glossary of Terms': 'glossary.md'
@@ -40,7 +40,9 @@ markdown_extensions:
       permalink: true
 
 plugins:
-  - open-in-new-tab
+  - search
+  - open-in-new-tab:
+      add_icon: false
   
 # Config options for 'ivory' theme      
 # static_templates:
