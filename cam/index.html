@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoonah City Schools Arts Program">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <title>2. CAM the Carver &mdash; CNC-wiki</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../css/extra.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href=".." class="site-name"> CNC-wiki</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="..">The BIG picture</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cad/">1. CAD by Design</a></li>
+                    <li class="toctree-l1 current"><a class="nav-item current" href="./">2. CAM the Carver</a>
+<ul class="subnav">
+<li class="toctree-l2"><a class="nav-item toc" href="#what-is-this-step">What is this step?</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#key-vocabulary">Key Vocabulary</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#workflow-steps">Workflow Steps</a></li>
+</ul></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../control/">3. Control the Machine</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cnc-maker/">4. CNC the Maker</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../finishing/">5. Finishing to Beautify</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../gallery/">Hoonah Gallery</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../troubleshooting/">Trouble?</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../learn-more/">Learn More...</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../setup/">Classroom setup</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../maintain/">Maintenance Tips</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../glossary/">Glossary of Terms</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../grbl/">GRBL Reference</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../credits/">Credits</a></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="previous"><a href="../cad/">&laquo; Previous</a></div>
+    <div class="next"><a href="../control/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href=".." class="site-name"> CNC-wiki</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    
+</ul>
+</nav>
+                <div id="content"><h2 id="step-2-cam-the-carver">Step 2. CAM the carver<a class="headerlink" href="#step-2-cam-the-carver" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>"turn your drawing into a toolpath for carving"</p>
+</blockquote>
+<p><img alt="CAM graphic" src="../images/cam-concept.png" /></p>
+<h3 id="what-is-this-step">What is this step?<a class="headerlink" href="#what-is-this-step" title="Permanent link">&para;</a></h3>
+<p><strong>CAM</strong> stands for <strong>Computer-Aided Manufacturing</strong>. This step is the "translator." It takes your <strong>CAD</strong> drawing (the <code>.svg</code> file) and translates it into instructions for the CNC machine.</p>
+<p>You use CAM software (we use <strong>Easel</strong>) to tell the machine <em>how</em> to carve your design. You will define what kind of cutting bit you're using, how deep to cut, and how fast to move. The CAM software then calculates all the specific X, Y, and Z movements, called <strong>toolpaths</strong>, and exports them as <strong>G-Code</strong>.</p>
+<h3 id="key-vocabulary">Key Vocabulary<a class="headerlink" href="#key-vocabulary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CAM (Computer-Aided Manufacturing):</strong> Software that turns a design file into machine instructions.</li>
+<li><strong>Easel:</strong> The free, browser-based CAM software we will use.</li>
+<li><strong>Toolpath:</strong> The calculated path the cutting bit will follow to carve your design. You will see this as a blue line in the Easel preview.</li>
+<li><strong>G-Code:</strong> The programming language for CNC machines. It's just a long list of coordinates and commands, like <code>G1 X50 Y10 Z-1</code>. You don't need to write G-Code, the CAM software does it for you!</li>
+<li><strong>Bit (or End Mill):</strong> The cutting tool that goes into the CNC router. They come in many shapes and sizes.</li>
+</ul>
+<h3 id="workflow-steps">Workflow Steps<a class="headerlink" href="#workflow-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Sign Up for Easel:</strong> Go to <a href="https://easel.inventables.com">Easel (easel.inventables.com)</a> and create a free account.</li>
+<li><strong>Start a New Project:</strong> Click "New Project" in Easel.</li>
+<li><strong>Set Material:</strong> In the top-right, set your material type (e.g., Softwood, Plywood) and its exact dimensions (Length, Width, and <strong>Thickness</strong>).<ul>
+<li>Use <strong>Material</strong>: <code>Pine</code>, <strong>Width</strong>: <code>12 in</code>, <strong>Length</strong>: <code>12 in</code>, <strong>Width</strong>: <code>0.75 in</code></li>
+</ul>
+</li>
+<li><strong>Set Bit:</strong> Tell Easel what bit you are using (e.g., <code>1/8" Up-Cut</code>). This is critical for an accurate cut.</li>
+<li>
+<p><strong>Review the Speed and Feed Settings</strong></p>
+<ul>
+<li>In <strong><em>Automatic Mode</em></strong> Easel will set all the speed and feed settings based on your CNC machine, material, and bit*  </li>
+<li>Below are typical settings for our beginner projects with <code>Softwood</code> and <code>1/8" (3.175mm) upcut bit</code>. Check Easel's <code>Cut Settings</code> are very similar, and if not double-check what machine, material, and bit you selected above!</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Setting</th>
+<th style="text-align: center;">Masuter Pro</th>
+<th style="text-align: center;">Masuter 3S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">RPM</td>
+<td style="text-align: center;">12,000</td>
+<td style="text-align: center;">12,000</td>
+</tr>
+<tr>
+<td style="text-align: center;">Feed</td>
+<td style="text-align: center;">900.0 mm/min</td>
+<td style="text-align: center;">1540.0 mm/min</td>
+</tr>
+<tr>
+<td style="text-align: center;">Depth of Cut</td>
+<td style="text-align: center;">0.80 mm</td>
+<td style="text-align: center;">2.20 mm</td>
+</tr>
+<tr>
+<td style="text-align: center;">Stepover</td>
+<td style="text-align: center;">1.27 mm</td>
+<td style="text-align: center;">1.27 mm</td>
+</tr>
+<tr>
+<td style="text-align: center;">Plunge</td>
+<td style="text-align: center;">450.0 mm/min</td>
+<td style="text-align: center;">770.0 mm/min</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>For different materials or bits you will need to use different speed and feed settings. <ul>
+<li>Easel should automatically determine settings.  </li>
+<li>--Or-- use the online calculator found at:  <a href="https://www.onlycncs.com">OnlyCNCs.com</a>. <ul>
+<li>Use this login: <code>steam@imaginedesignmake.com</code>, password: <code>Gobraves#4358</code></li>
+<li>HCS machine: <code>FoxAlien 4040 Masuter Pro</code>, <code>60/70W Spindle</code></li>
+<li>Mr. Ben's machine: <code>FoxAlien 4040 Masuter 3S</code>, <code>400/500W Spindle</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Import Your SVG:</strong> Go to <code>File &gt; Import &gt; SVG</code> and select the <code>.svg</code> file you created in the CAD step.</li>
+<li><strong>Place and Size:</strong> Move and scale your design on the digital material to where you want it.</li>
+<li><strong>Set Cut Depths:</strong> Click on your design elements and use the "Cut" tab to set how deep you want to carve. Do you want to go all the way through or just engrave the surface?</li>
+<li><strong>Simulate!</strong> This is the most important step. Easel shows you a 3D "Digital Preview" of what the final carve will look like. <strong>Always check the simulation</strong> to make sure it looks correct.</li>
+<li><strong>Export G-Code:</strong> When you are happy with the simulation, click the <strong>"Carve"</strong> button (top right). Since we are using a different program to <em>control</em> the machine, you will then:</li>
+<li>Click "Advanced".</li>
+<li>Click <strong>"Generate G-code"</strong>.</li>
+<li>Click <strong>"Export G-code"</strong>. This will download a file with a <code>.nc</code> or <code>.gcode</code> extension. This is the file we need for the next step.</li>
+</ul>
+</li>
+</ol></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../cad/" title="1. CAD by Design"><span>Previous</span></a></div>
+        <div class="next"><a href="../control/" title="3. Control the Machine"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Written by Ben McLuckie and contributors as credited. GPL-3.0 license<br>Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+    <script src="../search/main.js"></script>
+    <script src="../js/open_in_new_tab.js"></script>
+</body>
+
+</html>

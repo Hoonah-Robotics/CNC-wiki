@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoonah City Schools Arts Program">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <title>4. CNC the Maker &mdash; CNC-wiki</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../css/extra.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href=".." class="site-name"> CNC-wiki</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="..">The BIG picture</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cad/">1. CAD by Design</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cam/">2. CAM the Carver</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../control/">3. Control the Machine</a></li>
+                    <li class="toctree-l1 current"><a class="nav-item current" href="./">4. CNC the Maker</a>
+<ul class="subnav">
+<li class="toctree-l2"><a class="nav-item toc" href="#what-is-this-step">What is this step?</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#workflow-steps">Workflow Steps</a></li>
+</ul></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../finishing/">5. Finishing to Beautify</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../gallery/">Hoonah Gallery</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../troubleshooting/">Trouble?</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../learn-more/">Learn More...</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../setup/">Classroom setup</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../maintain/">Maintenance Tips</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../glossary/">Glossary of Terms</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../grbl/">GRBL Reference</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../credits/">Credits</a></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="previous"><a href="../control/">&laquo; Previous</a></div>
+    <div class="next"><a href="../finishing/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href=".." class="site-name"> CNC-wiki</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    
+</ul>
+</nav>
+                <div id="content"><h2 id="step-4-cnc-the-maker">Step 4. CNC the Maker<a class="headerlink" href="#step-4-cnc-the-maker" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>"Monitor the CNC machine as it operates all the motors following the instructions (GCODE) sent to the machine"</p>
+</blockquote>
+<p><img alt="CNC machine graphic" src="../images/cnc-machine.png" /></p>
+<h3 id="what-is-this-step">What is this step?<a class="headerlink" href="#what-is-this-step" title="Permanent link">&para;</a></h3>
+<p>This is it! The "making" part. This page covers the physical setup of the <strong>FoxAlien Masuter Pro</strong> machine. This includes clamping your material to the machine's bed, installing the correct cutting bit, and safely operating the machine.</p>
+<p>Your G-Code tells the CNC <strong>what</strong> to do, but this step is <strong>you</strong> setting up the machine for success. Pay close attention to detail here. <strong>Safety is the number one priority.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Safety FIRST!</strong></p>
+<p>Always wear protective safety glasses and hearing protection. Keep track of all 10 of your digits! Tie up long hair, draw strings on hoodies and anything that can dangle onto your material or spoilboard <em>Operating the machine is when accidents can hurt and damage YOU!</em></p>
+</div>
+<h3 id="workflow-steps">Workflow Steps<a class="headerlink" href="#workflow-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Put on your safety glasses and hearing protection. Check that nothing could possibly fall into the CNC spindle such as long hair or strings from your hoodie.</p>
+</li>
+<li>
+<p>Put on your safety glasses and hearing protection. Check that nothing could possibly fall into the CNC spindle such as long hair or strings from your hoodie.</p>
+</li>
+<li>Turn on the CNC spindle (the router).</li>
+<li>In UGS, click the <strong>"Send"</strong> (or "Play") button.</li>
+<li>The machine will now start moving and carving your design.</li>
+<li>Power down and clean up your work area.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Do not walk away!</strong></p>
+<p>Watch the machine, especially for the first few minutes, to make sure everything is working as expected.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Watch and listen for faults</strong></p>
+<ul>
+<li>If your material moves in any way, <strong>press the EMERGENCY BUTTON now!</strong></li>
+<li>If the CNC machine makes weird sounds or vibrations, <strong>press the EMERGENCY BUTTON now!</strong></li>
+</ul>
+</div></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../control/" title="3. Control the Machine"><span>Previous</span></a></div>
+        <div class="next"><a href="../finishing/" title="5. Finishing to Beautify"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Written by Ben McLuckie and contributors as credited. GPL-3.0 license<br>Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+    <script src="../search/main.js"></script>
+    <script src="../js/open_in_new_tab.js"></script>
+</body>
+
+</html>

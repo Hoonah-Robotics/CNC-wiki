@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoonah City Schools Arts Program">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <title>GRBL Reference &mdash; CNC-wiki</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../css/extra.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href=".." class="site-name"> CNC-wiki</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="..">The BIG picture</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cad/">1. CAD by Design</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cam/">2. CAM the Carver</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../control/">3. Control the Machine</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cnc-maker/">4. CNC the Maker</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../finishing/">5. Finishing to Beautify</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../gallery/">Hoonah Gallery</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../troubleshooting/">Trouble?</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../learn-more/">Learn More...</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../setup/">Classroom setup</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../maintain/">Maintenance Tips</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../glossary/">Glossary of Terms</a></li>
+                    <li class="toctree-l1 current"><a class="nav-item current" href="./">GRBL Reference</a>
+<ul class="subnav">
+<li class="toctree-l2"><a class="nav-item toc" href="#most-commonly-used">Most Commonly Used</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#error-codes">Error Codes</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#alarm-codes">Alarm Codes</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#non-gcode-commands">Non Gcode Commands</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#settings">Settings</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#supported-gcodes">Supported Gcodes</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#states">States</a></li>
+</ul></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../credits/">Credits</a></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="previous"><a href="../glossary/">&laquo; Previous</a></div>
+    <div class="next"><a href="../credits/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href=".." class="site-name"> CNC-wiki</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    
+</ul>
+</nav>
+                <div id="content"><h2 id="grbl-v11-quick-reference">Grbl v1.1 Quick Reference<a class="headerlink" href="#grbl-v11-quick-reference" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>"A reference to Grbl, Error codes, Alarm codes, settings, supported Gcode and States."</p>
+</blockquote>
+<ul>
+<li><strong>Written by:</strong> Graham B.   <strong>Remixed by:</strong> Ben McLuckie</li>
+<li><strong>Source:</strong> <a href="https://www.sainsmart.com/blogs/news/grbl-v2-0-quick-reference">Grbl v2 Quick Reference</a>  </li>
+</ul>
+<h3 id="most-commonly-used">Most Commonly Used<a class="headerlink" href="#most-commonly-used" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$$</td>
+<td style="text-align: left;"><strong><em>Am I alive?</em></strong>  (Display Grbl Settings which confirms the CNC machine is listening to you.)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$H</td>
+<td style="text-align: left;"><strong><em>Take Me Home!</em></strong>  (Run Homing Cycle for the machine to find where x=0 and y=0 is.)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$X</td>
+<td style="text-align: left;"><strong><em>Wake Me Up!</em></strong>  (Kill Alarm Lock state. Typically the CNC machine will boot into Alarm Lock for safety.)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="error-codes">Error Codes<a class="headerlink" href="#error-codes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">GCode Command letter was not found.</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">GCode Command value invalid or missing.</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Grbl '$' not recognized or supported.</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Negative value for an expected positive value.</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Homing fail. Homing not enabled in settings.</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Minstep pulse must be greater than 3usec.</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">EEPROM read failed. Default values used.</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Grbl '$'command Only valid when Idle.</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">GCode commands invalid in alarm or jog state.</td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Soft limits require homing to be enabled.</td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Max characters per line exceeded. Ignored.</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Grbl '$'setting exceeds the maximum step rate.</td>
+</tr>
+<tr>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Safety door opened and door state initiated.</td>
+</tr>
+<tr>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Build info or start-up line &gt; EEPROM line length</td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Jog target exceeds machine travel, ignored.</td>
+</tr>
+<tr>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">Jog Cmd missing '=' or has prohibited GCode.</td>
+</tr>
+<tr>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Laser mode requires PWM output.</td>
+</tr>
+<tr>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">Unsupported or invalid GCode command.</td>
+</tr>
+<tr>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">&gt; 1 GCode command in a modal group in block.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alarm-codes">Alarm Codes<a class="headerlink" href="#alarm-codes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Alarm Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Hard limit triggered. Position Lost.</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Soft limit alarm, position kept. Unlock is Safe.</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Reset while in motion. Position lost.</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Probe fail. Probe not in expected initial state.</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Probe fail. Probe did not contact the work.</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Homing fail. The active homing cycle was reset.</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Homing fail. Door opened during homing cycle.</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Homing fail. Pull off failed to clear limit switch.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="non-gcode-commands">Non Gcode Commands<a class="headerlink" href="#non-gcode-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$$</td>
+<td style="text-align: left;">Display Grbl Settings.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$x=val</td>
+<td style="text-align: left;">Change Grbl Setting xtoval.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$#</td>
+<td style="text-align: left;">View GCode Parameters.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$G</td>
+<td style="text-align: left;">View GCode parser state.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$C</td>
+<td style="text-align: left;">Toggle Check Gcode Mode</td>
+</tr>
+<tr>
+<td style="text-align: left;">$H</td>
+<td style="text-align: left;">Run Homing Cycle</td>
+</tr>
+<tr>
+<td style="text-align: left;">$J=gcode</td>
+<td style="text-align: left;">Run Jogging Motion.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$X</td>
+<td style="text-align: left;">Kill Alarm Lock state.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$I</td>
+<td style="text-align: left;">View Build Info</td>
+</tr>
+<tr>
+<td style="text-align: left;">$N</td>
+<td style="text-align: left;">View saved start up code</td>
+</tr>
+<tr>
+<td style="text-align: left;">$Nx=line</td>
+<td style="text-align: left;">Save Start-up GCode line (x=0 or 1) There areexecuted on a reset.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$RST=$</td>
+<td style="text-align: left;">Restores the Grbl settings to defaults.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$RST=#</td>
+<td style="text-align: left;">Erases G54-G59 WCS offsets and G28/30positions stored in EEPROM.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$RST=*</td>
+<td style="text-align: left;">Clear and Load all data from EEPROM.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$SLP</td>
+<td style="text-align: left;">Enable Sleep mode.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ctrl-x</td>
+<td style="text-align: left;">Soft Reset</td>
+</tr>
+<tr>
+<td style="text-align: left;">?</td>
+<td style="text-align: left;">Status report query.</td>
+</tr>
+<tr>
+<td style="text-align: left;">~</td>
+<td style="text-align: left;">Cycle Start/Resume from Feed Hold, Door orProgram pause.</td>
+</tr>
+<tr>
+<td style="text-align: left;">!</td>
+<td style="text-align: left;">Feed Hold – Stop all motion.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Setting</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$0</td>
+<td style="text-align: left;">Step pulse, microseconds</td>
+</tr>
+<tr>
+<td style="text-align: left;">$1</td>
+<td style="text-align: left;">Step idle delay, milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left;">$2</td>
+<td style="text-align: left;">Step port invert, XYZmask*</td>
+</tr>
+<tr>
+<td style="text-align: left;">$3</td>
+<td style="text-align: left;">Direction port invert, XYZmask*</td>
+</tr>
+<tr>
+<td style="text-align: left;">$4</td>
+<td style="text-align: left;">Step enable invert, (0=Disable, 1=Invert)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$5</td>
+<td style="text-align: left;">Limit pins invert, (0=N-Open. 1=N-Close)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$6</td>
+<td style="text-align: left;">Probe pin invert, (0=N-Open. 1=N-Close)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$10</td>
+<td style="text-align: left;">Status report, ‘?’ status.  0= WCS, 1=Machine, 2=plan/buffer + WCS, 3=plan/buffer + Machine.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$11</td>
+<td style="text-align: left;">Junction deviation, mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">$12</td>
+<td style="text-align: left;">Arc tolerance, mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">$13</td>
+<td style="text-align: left;">Report in inches, (0=mm. 1=Inches)**</td>
+</tr>
+<tr>
+<td style="text-align: left;">$20</td>
+<td style="text-align: left;">Soft limits, (0=Disable. 1=Enable, Hard limits andhoming Required.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$21</td>
+<td style="text-align: left;">Hard limits, (0=Disable. 1=Enable)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$22</td>
+<td style="text-align: left;">Homing cycle, (0=Disable. 1=Enable)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$23</td>
+<td style="text-align: left;">Homing direction invert, XYZmask* Sets home Pos</td>
+</tr>
+<tr>
+<td style="text-align: left;">$24</td>
+<td style="text-align: left;">Homing feed, mm/min</td>
+</tr>
+<tr>
+<td style="text-align: left;">$25</td>
+<td style="text-align: left;">Homing seek, mm/min</td>
+</tr>
+<tr>
+<td style="text-align: left;">$26</td>
+<td style="text-align: left;">Homing debounce, milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left;">$27</td>
+<td style="text-align: left;">Homing pull-off, mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">$30</td>
+<td style="text-align: left;">Max spindle speed, RPM</td>
+</tr>
+<tr>
+<td style="text-align: left;">$31</td>
+<td style="text-align: left;">Min spindle speed, RPM</td>
+</tr>
+<tr>
+<td style="text-align: left;">$32</td>
+<td style="text-align: left;">Laser mode, (0=Off, 1=On)</td>
+</tr>
+<tr>
+<td style="text-align: left;">$100</td>
+<td style="text-align: left;">Number of X steps to move 1mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">$101</td>
+<td style="text-align: left;">Number of Y steps to move 1mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">$102</td>
+<td style="text-align: left;">Number of Z steps to move 1mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">$103</td>
+<td style="text-align: left;">Number of A steps to move 1°</td>
+</tr>
+<tr>
+<td style="text-align: left;">$110</td>
+<td style="text-align: left;">X Max rate, mm/min</td>
+</tr>
+<tr>
+<td style="text-align: left;">$111</td>
+<td style="text-align: left;">Y Max rate, mm/min</td>
+</tr>
+<tr>
+<td style="text-align: left;">$112</td>
+<td style="text-align: left;">Z Max rate, mm/min</td>
+</tr>
+<tr>
+<td style="text-align: left;">$113</td>
+<td style="text-align: left;">A Max rate, °/min</td>
+</tr>
+<tr>
+<td style="text-align: left;">$120</td>
+<td style="text-align: left;">X Acceleration, mm/sec^2</td>
+</tr>
+<tr>
+<td style="text-align: left;">$121</td>
+<td style="text-align: left;">Y Acceleration, mm/sec^2</td>
+</tr>
+<tr>
+<td style="text-align: left;">$122</td>
+<td style="text-align: left;">Z Acceleration, mm/sec^2</td>
+</tr>
+<tr>
+<td style="text-align: left;">$123</td>
+<td style="text-align: left;">A Acceleration, °/sec^2</td>
+</tr>
+<tr>
+<td style="text-align: left;">$130</td>
+<td style="text-align: left;">X Max travel, mm Only for Homing and Soft Limits.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$131</td>
+<td style="text-align: left;">Y Max travel, mm Only for Homing and Soft Limits.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$132</td>
+<td style="text-align: left;">Z Max travel, mm Only for Homing and Soft Limits.</td>
+</tr>
+<tr>
+<td style="text-align: left;">$133</td>
+<td style="text-align: left;">A Max travel, ° Only for Homing and Soft Limits.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>XYZmask is a value setting for the X Y and Z axes. Change if an axis is moving in the wrong direction. Value will be 0-7.</li>
+<li>Reporting units are independent of the units set in the Gcode!///</li>
+</ul>
+</div>
+<h3 id="supported-gcodes">Supported Gcodes<a class="headerlink" href="#supported-gcodes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Set Feed rate in Units/min (See G20/G21).</td>
+</tr>
+<tr>
+<td style="text-align: left;">G0</td>
+<td style="text-align: left;">A Rapid positioning move at the Rapid FeedRate. In Laser mode Laser will be turned off.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G1</td>
+<td style="text-align: left;">A Cutting move in a straight line. At the CurrentF rate.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G2</td>
+<td style="text-align: left;">Cuta Clockwise arc.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G3</td>
+<td style="text-align: left;">Cut an Anti-Clockwise arc.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G4</td>
+<td style="text-align: left;">Pause command execution for the time in Pnnn.P specifies the time in seconds. Other systems usemilliseconds as the pause time, if used unchanged thiscan result in VERY long pauses.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G10 L2</td>
+<td style="text-align: left;">Sets the offset for a WCS origin using absolutemachine coordinates.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G10 L20</td>
+<td style="text-align: left;">As G10 L2 but the parameters are offsets fromthe current position.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G17</td>
+<td style="text-align: left;">Draw Arcs in the XY plane, default.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G18</td>
+<td style="text-align: left;">Draw Arcs in the ZX plane.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G19</td>
+<td style="text-align: left;">Draw Arcs in the YZ plane.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G20</td>
+<td style="text-align: left;">All distances and positions are in Inches</td>
+</tr>
+<tr>
+<td style="text-align: left;">G21</td>
+<td style="text-align: left;">All distances and positions are in mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">G28</td>
+<td style="text-align: left;">Goto safe position. NOTE: If you have not run ahoming cycle and have set the safe position this isvery ‘unsafe’ to use.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G28.1</td>
+<td style="text-align: left;">Set Safe position using absolute machinecoordinates.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G30</td>
+<td style="text-align: left;">Goto the saved G30 position.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G30.1</td>
+<td style="text-align: left;">Set Predefined position using absolute machinecoordinates, a rapid G0 move to that positionwill be performed before the coordinates aresaved.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G38.2</td>
+<td style="text-align: left;">Probe towards the stock, error on a failure.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G38.3</td>
+<td style="text-align: left;">As G38.2, no error on failure</td>
+</tr>
+<tr>
+<td style="text-align: left;">G38.4</td>
+<td style="text-align: left;">As G38.2 but move away, stop on a loss ofcontact.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G38.5</td>
+<td style="text-align: left;">As G38.4, no error on failure.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G40</td>
+<td style="text-align: left;">Cutter Compensation off. Grbl does not supportcutter compensation.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G43.1</td>
+<td style="text-align: left;">Dynamic Tool length offset, offsets Z end of toolposition for subsequent moves.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G49</td>
+<td style="text-align: left;">Cancel Tool length Offset.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G53</td>
+<td style="text-align: left;">Use machine coordinates in this command.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G54</td>
+<td style="text-align: left;">Activate the relevant saved origin.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G55-59</td>
+<td style="text-align: left;">As G54, activates a different saved position</td>
+</tr>
+<tr>
+<td style="text-align: left;">G61</td>
+<td style="text-align: left;">Exact Path mode. Grbl does not support any othermodes.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G80</td>
+<td style="text-align: left;">Canned Cycle Cancel. Grbl does not support any ofthe canned cycle modes which this cancels so it doesnothing.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G90</td>
+<td style="text-align: left;">All distances and positions are Absolute valuesfrom the current origin.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G91</td>
+<td style="text-align: left;">All distances and positions are Relative valuesfrom the current position.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G91.1</td>
+<td style="text-align: left;">Sets Arc incremental position mode</td>
+</tr>
+<tr>
+<td style="text-align: left;">G92</td>
+<td style="text-align: left;">Sets the current coordinate point, used to set anorigin point of zero, commonly known as thehome position.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G92.1</td>
+<td style="text-align: left;">Reset any G92 offsets in effect to zero and zeroany saved values</td>
+</tr>
+<tr>
+<td style="text-align: left;">G93</td>
+<td style="text-align: left;">Inverse time motion mode.</td>
+</tr>
+<tr>
+<td style="text-align: left;">G94</td>
+<td style="text-align: left;">Units/min mode at the current F rate.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M0</td>
+<td style="text-align: left;">Pause for P seconds.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M1</td>
+<td style="text-align: left;">As M0 but only pauses if an optional stop switchis on.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M2</td>
+<td style="text-align: left;">Program End, turnoff spindle/laser and stopsthe machine.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M3</td>
+<td style="text-align: left;">Start spindle clockwise. In Laser mode setsConstant power.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M4</td>
+<td style="text-align: left;">As M3, In Laser Mode sets Dynamic power.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M5</td>
+<td style="text-align: left;">Stop the Spindle</td>
+</tr>
+<tr>
+<td style="text-align: left;">M7</td>
+<td style="text-align: left;">Toggle Air Assist/Coolant.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M8</td>
+<td style="text-align: left;">Toggle Air Assist/Coolant. (a different pin is usedthan M7)</td>
+</tr>
+<tr>
+<td style="text-align: left;">M9</td>
+<td style="text-align: left;">Air Assist/Coolant off.</td>
+</tr>
+<tr>
+<td style="text-align: left;">M30</td>
+<td style="text-align: left;">Same as M2.</td>
+</tr>
+<tr>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">Set Spindle speed in RPM or Laser Power.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Codes can contain leading zeros, G0 and G00 are the same. There are loads more GCodes, these are the ones Grbl supports. A lot of commands are Modal meaning they are remembered and applied to subsequent commands. For example, G0 X1 followed by Z5 remembers the G0 Mode and applies it to the Z5. S is modal, remembered from the last command. Two commands in the same modal group cannot be on the same line.</p>
+</div>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Letter</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">X Y Z A</td>
+<td style="text-align: left;">Distances or positions on the X Y Z A axes.</td>
+</tr>
+<tr>
+<td style="text-align: left;">I J K</td>
+<td style="text-align: left;">Distances or positions for G2 and G3 Arcs.Correspond to the Z Y X axis respectively. Theseare always incremental coordinates regardless ofG90/G91</td>
+</tr>
+<tr>
+<td style="text-align: left;">L</td>
+<td style="text-align: left;">Loop Cycle Count, supported but not used.</td>
+</tr>
+<tr>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Line Number, supported but not used.</td>
+</tr>
+<tr>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Arc radius for G2 and G3.</td>
+</tr>
+<tr>
+<td style="text-align: left;">P</td>
+<td style="text-align: left;">Multi-purpose parameter depends on command itis used in.</td>
+</tr>
+<tr>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">Toolselection, not used.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All parameters <strong>must</strong> be followed by a number.</p>
+</div>
+<h3 id="states">States<a class="headerlink" href="#states" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">State</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Alarm</td>
+<td style="text-align: left;">Homing enabled but homing cycle not run orerror has been detected such as limit switchactivated. Home or unlock to resume.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Idle</td>
+<td style="text-align: left;">Waiting for any command.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jog</td>
+<td style="text-align: left;">Performing jog motion, no new commands untilcomplete, except Jog commands.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Homing</td>
+<td style="text-align: left;">Performing a homing cycle, won’taccept newcommands until complete.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Check</td>
+<td style="text-align: left;">Check mode is enabled; all commands acceptedbut will only be parsed, not executed.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cycle</td>
+<td style="text-align: left;">Running GCode commands, all commandsaccepted, will goto Idle when commands arecomplete.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hold</td>
+<td style="text-align: left;">Pause is in operation, resume to continue.</td>
+</tr>
+<tr>
+<td style="text-align: left;">SafetyDoor</td>
+<td style="text-align: left;">The safety door switch has been activated,similar to a Hold but will resume on closing thedoor. You probably don’t have a safety door onyour machine!</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sleep</td>
+<td style="text-align: left;">Sleep command has been received andexecuted, sometimes used at the end of a job.Reset or power cycle to continue.</td>
+</tr>
+</tbody>
+</table></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../glossary/" title="Glossary of Terms"><span>Previous</span></a></div>
+        <div class="next"><a href="../credits/" title="Credits"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Written by Ben McLuckie and contributors as credited. GPL-3.0 license<br>Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+    <script src="../search/main.js"></script>
+    <script src="../js/open_in_new_tab.js"></script>
+</body>
+
+</html>

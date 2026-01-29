@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoonah City Schools Arts Program">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <title>3. Control the Machine &mdash; CNC-wiki</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../css/extra.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href=".." class="site-name"> CNC-wiki</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="..">The BIG picture</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cad/">1. CAD by Design</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cam/">2. CAM the Carver</a></li>
+                    <li class="toctree-l1 current"><a class="nav-item current" href="./">3. Control the Machine</a>
+<ul class="subnav">
+<li class="toctree-l2"><a class="nav-item toc" href="#what-is-this-step">What is this step?</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#key-vocabulary">Key Vocabulary</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#workflow-steps">Workflow Steps</a></li>
+</ul></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cnc-maker/">4. CNC the Maker</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../finishing/">5. Finishing to Beautify</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../gallery/">Hoonah Gallery</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../troubleshooting/">Trouble?</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../learn-more/">Learn More...</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../setup/">Classroom setup</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../maintain/">Maintenance Tips</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../glossary/">Glossary of Terms</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../grbl/">GRBL Reference</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../credits/">Credits</a></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="previous"><a href="../cam/">&laquo; Previous</a></div>
+    <div class="next"><a href="../cnc-maker/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href=".." class="site-name"> CNC-wiki</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    
+</ul>
+</nav>
+                <div id="content"><h2 id="step-3-control-the-machine">Step 3. Control the machine<a class="headerlink" href="#step-3-control-the-machine" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>"send the toolpaths and other machine instructions (GCODE) to the CNC's controller"</p>
+</blockquote>
+<p><img alt="Control graphic" src="../images/cncjs.png" /></p>
+<h3 id="what-is-this-step">What is this step?<a class="headerlink" href="#what-is-this-step" title="Permanent link">&para;</a></h3>
+<p>This step is the bridge between the digital file and the physical machine. We use a <strong>G-Code Sender</strong> (also called "control software") to talk to the CNC machine's "brain" (the <strong>controller</strong>).</p>
+<p>Our <strong>FoxAlien Masuter Pro</strong> uses a controller that understands G-Code. We will use a program called <strong>CNCjs</strong> to connect our computer to the CNC via a USB cable, load our <code>.nc</code> G-Code file, and tell the machine "Go!"</p>
+<h3 id="key-vocabulary">Key Vocabulary<a class="headerlink" href="#key-vocabulary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>G-Code Sender:</strong> The software that sends G-Code instructions to the CNC, line by line. We use <strong>CNCjs</strong>.</li>
+<li><strong>Controller:</strong> The small "brain" or circuit board on the CNC machine (it runs <strong>GRBL</strong> firmware) that receives the G-Code and controls all the motors.</li>
+<li><strong>Jog:</strong> Manually moving the machine's X, Y, or Z axis using the software's buttons. This is used to find your starting point.</li>
+<li><strong>Zero Position (or Origin):</strong> The exact starting point for your job. You set this <em>every single time</em>. It's the <code>X=0, Y=0, Z=0</code> spot on your material.</li>
+</ul>
+<h3 id="workflow-steps">Workflow Steps<a class="headerlink" href="#workflow-steps" title="Permanent link">&para;</a></h3>
+<hr />
+<details class="note">
+<summary><strong>First time? You may also want to follow along with this video.</strong></summary>
+<p>This video is a fantastic guide for all the physical steps of "Step 3: Control the Machine" and "Step 4: CNC the Maker". Watch it carefully. There are some details we will do differently, so also follow along with our Workflow steps below.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6V9tmybmdnY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr />
+<p>### Key Steps from the Video</p>
+<p>Here is a breakdown of the key tasks you will perform, with timestamps from the video.</p>
+<ul>
+<li>
+<p><strong>Methods to hold down your material (1:20)</strong></p>
+<ul>
+<li>Your material <strong>must not move</strong> during a carve.</li>
+<li>The video shows using clamps (3:30) and the "blue tape and CA glue" method.</li>
+<li>The <strong>blue tape &amp; glue method</strong> is excellent because it holds the material flat from underneath, so the router can't run into a clamp (7:46).</li>
+</ul>
+</li>
+<li>
+<p><strong>Install your bit (11:15)</strong></p>
+<ul>
+<li>Make sure the CNC is <strong>unplugged</strong> or the spindle is off.</li>
+<li>Insert the bit into the collet (the part that grabs the bit).</li>
+<li>Make sure you push it in far enough, but <strong>do not</strong> let the "flutes" (the cutting edges) go up inside the collet.</li>
+<li>Tighten the collet nut securely with the wrenches.</li>
+</ul>
+</li>
+<li>
+<p><strong>Installation of your GRBL CNC machine (13:12)</strong></p>
+<ul>
+<li>This is the <em>one-time</em> step of installing the "drivers" (software) that lets your computer talk to the CNC's controller. This has already been done for you on the CNC-STEAM headless computer the CNC is connected to.</li>
+</ul>
+</li>
+<li>
+<p><strong>Opening UGS software (15:54)</strong></p>
+<ul>
+<li>The video shows connecting to UGS (Universal Gcode Sender). This is what we will do in our <strong><a href="./">3. Control the machine</a></strong> step, with a few differences with our CNC-STEAM setup.</li>
+</ul>
+</li>
+<li>
+<p><strong>Setting the zero position correctly (21:00)</strong></p>
+<ul>
+<li>This is the <strong>most critical</strong> step. This video shows two methods:<ol>
+<li><strong>The Paper Method:</strong> Jog the Z-axis down until a piece of paper under the bit <em>just</em> starts to get stuck. This is Z=0.</li>
+<li><strong>A Z-Probe:</strong> This is a small metal block that automates finding the Z=0. This is what we will use.</li>
+</ol>
+</li>
+<li>Always remember to <strong>set your X, Y, and Z zero points</strong> before you start!</li>
+</ul>
+</li>
+<li>
+<p><strong>Loading and starting the job (25:41)</strong></p>
+<ul>
+<li>Load your G-Code file into UGS and check the visualizer.</li>
+<li>Put on your safety glasses.</li>
+<li>Turn on the spindle.</li>
+<li>Click <strong>Send</strong>.</li>
+<li><strong>Do not</strong> walk away. Watch the machine, especially for the first few minutes, to make sure everything is working as expected.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<ol>
+<li>
+<p><strong>Secure your material to the spoilboard by clamp or glue</strong></p>
+<ul>
+<li>Your material <strong>must not move</strong> during a carve.</li>
+<li>3d printed clamps work well because if the toolhead moves beyond the material, the bit will easily chew up the clamp without breaking.</li>
+<li>The <strong>blue tape &amp; glue method</strong> is excellent because it holds the material flat from underneath, so the router can't run into a clamp.
+<img alt="Clamp Material" src="../images/clamp-material.png" /></li>
+</ul>
+</li>
+<li>
+<p><strong>Install your Bit (End Mill)</strong></p>
+<div class="admonition warning">
+<p class="admonition-title"><strong>The Bit is sharper than a knife!</strong></p>
+<p>Hold the bit only by the shank and <strong>never by the flute.</strong> The corner end of the flute is even sharper than a knife! A bit is designed to cut through steel like butter.</p>
+</div>
+<ul>
+<li>Make sure the CNC is <strong>unplugged</strong> or the spindle is off.</li>
+<li>Insert the bit into the collet (the part that grabs the bit).</li>
+<li>Make sure you push it in far enough, but <strong>do not</strong> let the "flutes" (the cutting edges) go up inside the collet.</li>
+<li>Tighten the collet nut securely with the wrenches.</li>
+</ul>
+<p><img alt="Install the Router Bit" src="../images/install-bit.png" /></p>
+</li>
+<li>
+<p><strong>Connect to G-code Sender</strong></p>
+<ul>
+<li>There are two versions depending if the computer is your own personal connected by USB or one from HCS managed by TechOps. Choose your method:</li>
+</ul>
+<hr />
+<details class="note">
+<summary><strong>I am using my own personal computer connected to the CNC by USB cable...</strong></summary>
+<ol>
+<li><strong>Download and Install Software</strong> You will need both <strong>Universal Gcode Sender (UGS)</strong> software and <strong>CH340</strong> USB drivers downloaded and installed to your computer. Note that the HCS computers will be using <strong>CNCjs</strong> instead of UGS but they are nearly identical so the instructions below should still work fine.<ul>
+<li><strong><a href="https://www.foxalien.com/pages/foxalien-help-center?hcUrl=%2Fen-US%2Fch340-driver-and-grbl-software-490211">CH340 drivers</a></strong></li>
+<li><strong><a href="https://universalgcodesender.com/download/">Universal Gcode Sender (UGS)</a></strong>, Platform version.</li>
+</ul>
+</li>
+<li><strong>Connect to the CNC:</strong><ul>
+<li>Turn on the FoxAlien Masuter CNC machine.</li>
+<li>Connect the computer to the CNC using the USB cable.</li>
+</ul>
+</li>
+<li><strong>Launch the gcode sender:</strong> Open UGS installed on your computer.</li>
+</ol>
+</details>
+<hr />
+<details class="note">
+<summary><strong>I am using a Hoonah School's computer managed by TechOps...</strong></summary>
+<ol>
+<li><strong>Connect to the CNC Machine:</strong> The <code>CNC-Pro</code>, <code>CNC-3S</code>, or <code>CNC-mini</code> box should be connected by USB to the target CNC machine and to a power supply by microUSB. There should be a linking red light inside the box. <code>CNC-Pro</code> should be powered ON for 15 seconds before the next step.</li>
+<li>Turn on the CNC machine and wait 10 seconds.</li>
+<li><strong>Launch CNCjs:</strong> From your computer, type in the URL: <a href="http://CNC-Pro"><strong>http://CNC-Pro</strong></a> in the top of Chrome browser window. Do <strong>not</strong> do a Google Search since Google does not know about our CNC machines!!
+<img alt="CNC-Pro-URL" src="../images/cnc-pro-url.png" /></li>
+</ol>
+</details>
+<hr />
+</li>
+<li>
+<p><strong>Establish Connection:</strong></p>
+<ul>
+<li>In the "Connection" window, select the correct <strong>Port</strong> for the CNC. (It will usually be the only one that appears when you plug in the machine).</li>
+<li>Set the <strong>Baud Rate</strong> to <code>115200</code> (this is the standard for our machine).</li>
+<li>Click <strong>"Connect"</strong> (it looks like a plug icon). The status should change to "Online".</li>
+<li>(optional) Type <code>$$</code> into the <strong>Console</strong> and the machine should report report its settings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Load G-Code:</strong></p>
+<ul>
+<li>Go to <code>File &gt; Open</code> and select the <code>.nc</code> or <code>.gcode</code> file you exported from Easel.</li>
+<li><strong>Watch for any machine errors in the Visualizer!</strong> Is the machine doing what we want it to do? Finding machine errors <strong>now</strong> can head off disasters later!</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Your Zero (Origin):</strong></p>
+<ul>
+<li>This is the <strong>most important</strong> part of machine setup. You must tell the machine exactly where your job starts.</li>
+<li>Use the "Jog" buttons in UGS to move the CNC's toolhead:<ul>
+<li>Move the X and Y axes until the tip of the bit is directly over the <strong>bottom-left corner</strong> of your material.</li>
+<li>Click the <strong>"Reset X"</strong> and <strong>"Reset Y"</strong> buttons (or <code>Set X=0</code>, <code>Set Y=0</code>).</li>
+<li>Carefully "jog" the Z-axis down until the very tip of the bit is just touching the <strong>top surface</strong> of your material. (The "paper method" is great for this).</li>
+<li>Click the <strong>"Reset Z"</strong> button (<code>Set Z=0</code>).</li>
+</ul>
+</li>
+<li>Your machine now knows its <code>(0, 0, 0)</code> starting point.</li>
+</ul>
+</li>
+</ol></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../cam/" title="2. CAM the Carver"><span>Previous</span></a></div>
+        <div class="next"><a href="../cnc-maker/" title="4. CNC the Maker"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Written by Ben McLuckie and contributors as credited. GPL-3.0 license<br>Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+    <script src="../search/main.js"></script>
+    <script src="../js/open_in_new_tab.js"></script>
+</body>
+
+</html>

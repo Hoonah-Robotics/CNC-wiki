@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoonah City Schools Arts Program">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <title>1. CAD by Design &mdash; CNC-wiki</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../css/extra.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href=".." class="site-name"> CNC-wiki</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="..">The BIG picture</a></li>
+                    <li class="toctree-l1 current"><a class="nav-item current" href="./">1. CAD by Design</a>
+<ul class="subnav">
+<li class="toctree-l2"><a class="nav-item toc" href="#what-is-this-step">What is this step?</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#key-vocabulary">Key Vocabulary</a></li>
+<li class="toctree-l2"><a class="nav-item toc" href="#workflow-steps">Workflow Steps</a></li>
+</ul></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cam/">2. CAM the Carver</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../control/">3. Control the Machine</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../cnc-maker/">4. CNC the Maker</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../finishing/">5. Finishing to Beautify</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../gallery/">Hoonah Gallery</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../troubleshooting/">Trouble?</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../learn-more/">Learn More...</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../setup/">Classroom setup</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../maintain/">Maintenance Tips</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../glossary/">Glossary of Terms</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../grbl/">GRBL Reference</a></li>
+                    <li class="toctree-l1"><a class="nav-item" href="../credits/">Credits</a></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="previous"><a href="..">&laquo; Previous</a></div>
+    <div class="next"><a href="../cam/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href=".." class="site-name"> CNC-wiki</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    
+</ul>
+</nav>
+                <div id="content"><h2 id="step-1-cad-by-design">Step 1. CAD by design<a class="headerlink" href="#step-1-cad-by-design" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>"design or draw from your imagination and wishes"</p>
+</blockquote>
+<p><img alt="CAD graphic" src="../images/cad-concept.png" /></p>
+<h3 id="what-is-this-step">What is this step?<a class="headerlink" href="#what-is-this-step" title="Permanent link">&para;</a></h3>
+<p><strong>CAD</strong> stands for <strong>Computer-Aided Design</strong>. This is the starting point for any project. It's where you use computer software to create a 2D or 3D digital model of your idea. Think of it as a high-tech drawing board.</p>
+<p>For our CNC machine, we typically start with a 2D "vector" drawing, which is like a digital connect-the-dots outline that the machine can follow.</p>
+<h3 id="key-vocabulary">Key Vocabulary<a class="headerlink" href="#key-vocabulary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CAD (Computer-Aided Design):</strong> Using software to create digital drawings or models.</li>
+<li><strong>Vector (or SVG):</strong> A type of graphic that uses mathematical lines and curves to create an image. This is perfect for CNC because the machine can follow these lines. This is different from a "pixel" image (like a photo or .jpg) which has no clear path for a machine to follow.</li>
+<li><strong>Export:</strong> Saving your work in a specific file format. We will export our designs to <strong>SVG (Scalable Vector Graphics)</strong>.</li>
+</ul>
+<h3 id="workflow-steps">Workflow Steps<a class="headerlink" href="#workflow-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong><em>Imagine:</em></strong> Decide what you want to make. A sign? A keychain? A wall hanging? For your first CNC project start with a basic design.</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>Design knowing the limits of CNC</strong></p>
+<p>We will be using a standard 1/8" (3.175mm) straight end mill to cut. You cannot cut a channel narrower than 1/8"! Also, a rotating tool cannot cut a perfectly sharp internal 90° corner. The finest internal corner will have a 1/16" radius. Compare this to 3d Printers that can extrude lines to 0.1mm width!</p>
+</div>
+</li>
+<li>
+<p><strong>Choose Your Software:</strong> We recommend one of these two options:</p>
+<ul>
+<li><strong><a href="https://www.tinkercad.com">Autodesk Tinkercad</a>:</strong> A very easy to use, free, browser-based tool. While it's known for 3D, you can easily create 2D shapes, text, or export the "bottom" of a 3D design as an SVG.</li>
+<li><strong><a href="https://www.adobe.com/products/illustrator.html">Adobe Illustrator</a>:</strong> A professional tool (available at Alaska STEAM hub) that is excellent for creating detailed vector art, text, and logos.</li>
+<li>There are dozens of other good design software that also can be used. They must be able to export vectors in SVG format. Painting and photo editing software like Photoshop will <strong><em>not</em></strong> work!</li>
+<li><strong><a href="https://www.canva.com">Canva</a></strong> only allows downloading your design as an SVG file with the Pro subscription. The resulting file may require cleanup in the software listed above especially if you used complex shapes or text since it is the Canva AI translating your design into SVG.</li>
+</ul>
+</li>
+<li><strong>Create Your Design:</strong><ul>
+<li>Draw your shapes. <ul>
+<li>In Tinkercad the <code>Extrude Sketch</code> and <code>Scribble</code> tools are the most flexible. </li>
+<li>Any extruded basic shape or text with a flat top and bottom will also work. <code>Box</code>, <code>Polygon</code>, <code>Star</code>, <code>Heart</code>, <code>Script</code> are all good shapes. But a <code>Pyramid</code> with a pointed top will export to SVG as a square. </li>
+<li><code>Import</code> &gt; <code>SVG</code> images work, and you can convert the image to an outline using <code>Fill Mode: Outer Line</code>  from the shape attributes panel. A helpful video shows this: <strong><a href="https://youtu.be/AzG8kJMFDLM?si=agvdSwsEe1r4-umi">Use the Tinkercad SVG Tool to Create Laser &amp; CNC Designs in Minutes!</a></strong> </li>
+</ul>
+</li>
+<li>Ensure all your lines are "closed polygons" (no gaps, no tails).</li>
+<li>In Adobe Illustrator text needs to be "outlined" (converted from a text-font into a shape) using the <code>Type &gt; Create Outlines</code> command. </li>
+</ul>
+</li>
+<li><strong>Export to SVG:</strong><ul>
+<li>For Tinkercad make sure your design is positioned flat on the workplane at <code>z = 0</code></li>
+<li>Go to <code>File &gt; Export</code> and choose <strong>SVG</strong> as the file type. This <code>.svg</code> file is what you will use in the next step (CAM).</li>
+</ul>
+</li>
+</ol></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href=".." title="The BIG picture"><span>Previous</span></a></div>
+        <div class="next"><a href="../cam/" title="2. CAM the Carver"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Written by Ben McLuckie and contributors as credited. GPL-3.0 license<br>Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+    <script src="../search/main.js"></script>
+    <script src="../js/open_in_new_tab.js"></script>
+</body>
+
+</html>
